@@ -1,5 +1,5 @@
 from modelos.avaliacao import Avaliacao
-
+from math import floor, ceil
 class Restaurante:
     restaurantes = []
 
@@ -37,5 +37,5 @@ class Restaurante:
             return '-'
         soma_das_notas = sum(avaliacao._nota for avaliacao in self._avaliacao)
         quantidade_de_notas = len(self._avaliacao)
-        media = round(soma_das_notas / quantidade_de_notas, 1)
+        media = ceil(soma_das_notas / quantidade_de_notas)
         return media
