@@ -8,6 +8,7 @@ class Restaurante:
         self._categoria = categoria.upper()
         self._ativo = False
         self._avaliacao = []
+        self._cardapio = []
         Restaurante.restaurantes.append(self)
     
     def __str__(self):
@@ -39,3 +40,9 @@ class Restaurante:
         quantidade_de_notas = len(self._avaliacao)
         media = ceil(soma_das_notas / quantidade_de_notas)
         return media
+    
+    def adicionar_bebida_no_cardapio(self, bebida):
+        self._cardapio.append(bebida)
+
+    def adicionar_prato_no_cardapio(self, prato):
+        self._prato.append(prato)
