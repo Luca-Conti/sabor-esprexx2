@@ -1,5 +1,6 @@
 from modelos.avaliacao import Avaliacao
 from math import floor, ceil
+from modelos.cardapio.item_cardapio import Item_cardapio
 class Restaurante:
     restaurantes = []
 
@@ -41,8 +42,19 @@ class Restaurante:
         media = ceil(soma_das_notas / quantidade_de_notas)
         return media
     
-    def adicionar_bebida_no_cardapio(self, bebida):
-        self._cardapio.append(bebida)
 
-    def adicionar_prato_no_cardapio(self, prato):
-        self._prato.append(prato)
+    def add_no_cardapio(self, item):
+        if isinstance(item, Item_cardapio):
+            self._cardapio.append(item)
+
+    @property
+    def exibir_cardapio(self):
+        print(f'Cardapio do restaurante {self._nome}\n')
+        
+        for indice, item in enumerate(self._cardapio, start=1):
+            if hasattr(item, 'descricao'):
+                mensagem = f'{indice}. Nome {item._nome.ljust(25)} || Preço {item._preco} || Descrição {item.descricao}'
+                print(mensagem)
+            else:
+                mensagem = f'{indice}. Nome {item._nome.ljust(25)} || Preço {item._preco} || Tamanho {item.tamanho}'
+                print(mensagem)
