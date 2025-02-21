@@ -4,8 +4,6 @@ from modelos.cardapio.bebidas import Bebidas
 from modelos.cardapio.prato import Prato
 from modelos.cardapio.item_cardapio import Item_cardapio
 
-total = 2 #total pro while na funciao opicao
-
 beida_suco = Bebidas('suco de laranja', 5.0, 'grande')
 comida_pazinho = Prato('pazinho', 1.5, 'pazinho' )
 beida_suco.aplicar_desconto()
